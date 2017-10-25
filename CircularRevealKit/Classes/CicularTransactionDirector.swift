@@ -29,7 +29,7 @@ public typealias AnimationBlock = (( _ transactionContext: UIViewControllerConte
 
 public class CicularTransactionDirector: NSObject {
 
-  public var duration: TimeInterval = DEFAULT_CIRCULAR_ANIMATION_DURATION
+  public var duration: TimeInterval = _DEFAULT_CIRCULAR_ANIMATION_DURATION
   public var transitionContext: UIViewControllerContextTransitioning?
   public var animationBlock: AnimationBlock?
 
@@ -44,7 +44,7 @@ extension CicularTransactionDirector: UIViewControllerAnimatedTransitioning {
   
   public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     self.transitionContext = transitionContext
-    self.animationBlock?(transitionContext, duration) { _ in
+    self.animationBlock?(transitionContext, duration) {
       transitionContext.completeTransition(true)
     }
   }
@@ -55,7 +55,7 @@ extension CicularTransactionDirector: UIViewControllerInteractiveTransitioning {
 
   public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
     self.transitionContext = transitionContext
-    self.animationBlock?(transitionContext, duration) { _ in }
+    self.animationBlock?(transitionContext, duration) {}
   }
 
 }

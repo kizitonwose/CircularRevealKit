@@ -26,7 +26,7 @@ public extension UINavigationController {
 
   func radialPresentPushViewController(
     _ viewController: UIViewController? = nil,
-    _ duration: TimeInterval = DEFAULT_CIRCULAR_ANIMATION_DURATION,
+    _ duration: TimeInterval = _DEFAULT_CIRCULAR_ANIMATION_DURATION,
     _ startFrame: CGRect = CGRect.zero,
     revealType: RevealType = .reveal,
     _ transitionCompletion: (() -> ())? = nil) {
